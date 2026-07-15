@@ -4,174 +4,290 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zohaib Akeel — Content Creator Portfolio</title>
-  <meta name="description" content="Content creator portfolio of Zohaib Akeel. SEO blogs, guides, and digital content across multiple niche websites.">
+  <meta name="description" content="SEO Content Writer & Digital Publisher. 3 live niche websites, 50+ published articles.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0f0f13;
-      --surface: #1a1a24;
-      --border: #2a2a3a;
-      --accent: #7c6af7;
-      --text: #e8e8f0;
-      --muted: #8888a8;
-      --radius: 14px;
+      --bg: #f8f7ff;
+      --white: #ffffff;
+      --border: #e8e4ff;
+      --accent: #5b4ef8;
+      --accent2: #ff6b35;
+      --accent-light: #ede9ff;
+      --text: #1a1535;
+      --muted: #6b6890;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(91,78,248,.08);
+      --shadow-hover: 0 16px 48px rgba(91,78,248,.18);
     }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+    body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
 
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--accent); letter-spacing: -.02em; }
+    .nav-email { font-size: 13px; font-weight: 600; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .nav-email:hover { color: var(--accent); }
+
+    /* HERO */
     .hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 60px 20px;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, #2d1f6e44, transparent),
-                  radial-gradient(ellipse 60% 40% at 80% 80%, #f9731622, transparent);
+      padding: 100px 24px 80px;
+      text-align: center;
+      background: linear-gradient(160deg, #ffffff 0%, #f0ecff 50%, #fff5f0 100%);
+      position: relative; overflow: hidden;
     }
-    .hero__inner { max-width: 700px; }
+    .hero::before {
+      content: '';
+      position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, #5b4ef812 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero__inner { position: relative; max-width: 720px; margin: 0 auto; }
     .hero__badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #7c6af722, #f9731622);
-      border: 1px solid var(--border); color: var(--accent);
-      font-size: 13px; font-weight: 600; letter-spacing: .06em;
-      padding: 6px 16px; border-radius: 100px;
-      margin-bottom: 24px; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-light); color: var(--accent);
+      font-size: 13px; font-weight: 700; letter-spacing: .04em;
+      padding: 8px 18px; border-radius: 100px; margin-bottom: 28px;
+      border: 1px solid #c9bfff;
     }
+    .hero__badge span { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
     .hero__name {
-      font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; line-height: 1.1;
-      background: linear-gradient(135deg, #fff 40%, #7c6af7);
+      font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 800; line-height: 1.05;
+      letter-spacing: -.03em; margin-bottom: 18px;
+      background: linear-gradient(135deg, #1a1535 0%, #5b4ef8 60%, #ff6b35 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      margin-bottom: 16px;
     }
-    .hero__title { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--muted); margin-bottom: 28px; }
-    .hero__contact { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px; }
+    .hero__sub { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--muted); margin-bottom: 36px; font-weight: 500; }
+    .hero__pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 52px; }
     .pill {
-      display: flex; align-items: center; gap: 8px;
-      background: var(--surface); border: 1px solid var(--border);
-      padding: 10px 18px; border-radius: 100px; font-size: 14px; font-weight: 500;
-      transition: border-color .2s, transform .2s;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); border: 1.5px solid var(--border);
+      padding: 10px 20px; border-radius: 100px; font-size: 14px; font-weight: 600;
+      box-shadow: var(--shadow); transition: all .2s;
     }
-    .pill:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .pill svg { width: 16px; height: 16px; flex-shrink: 0; }
-    .hero__stats { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .stat { text-align: center; }
-    .stat__num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
-    .stat__label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+    .pill:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-hover); color: var(--accent); }
+    .pill svg { width: 15px; height: 15px; }
+    .hero__stats {
+      display: inline-flex; flex-wrap: wrap; gap: 0;
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 20px; box-shadow: var(--shadow); overflow: hidden;
+    }
+    .stat {
+      padding: 20px 36px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat__num { font-size: 1.9rem; font-weight: 800; color: var(--accent); letter-spacing: -.03em; }
+    .stat__label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-weight: 600; margin-top: 2px; }
 
-    section { padding: 80px 20px; }
+    /* SECTIONS */
+    section { padding: 88px 24px; }
     .container { max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; margin-bottom: 48px; }
-
-    .sites-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-    .site-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden;
-      transition: transform .25s, border-color .25s, box-shadow .25s;
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
     }
-    .site-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 20px 60px #7c6af720; }
-    .site-card__header { padding: 28px 28px 0; display: flex; align-items: center; gap: 14px; }
-    .site-card__icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-    .site-card__meta h3 { font-size: 1.1rem; font-weight: 700; }
-    .site-card__meta span { font-size: 13px; color: var(--muted); }
-    .site-card__body { padding: 16px 28px 28px; }
-    .site-card__desc { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.7; }
-    .site-card__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .tag { font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 100px; background: #7c6af715; color: var(--accent); border: 1px solid #7c6af730; }
-    .site-card__link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent); transition: gap .2s; }
-    .site-card__link:hover { gap: 10px; }
+    .section-eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--accent); border-radius: 2px; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 52px; }
+    .section-title span { color: var(--accent); }
 
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-    .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color .2s; }
-    .skill-card:hover { border-color: var(--accent); }
-    .skill-card__icon { font-size: 28px; margin-bottom: 12px; }
-    .skill-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-    .skill-card p { font-size: 13px; color: var(--muted); }
+    /* WEBSITE CARDS */
+    .sites-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .site-card {
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); transition: all .3s;
+      display: flex; flex-direction: column;
+    }
+    .site-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+    .site-card__top { padding: 28px 28px 0; display: flex; align-items: flex-start; gap: 16px; }
+    .site-card__icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+    .site-card__meta { flex: 1; }
+    .site-card__meta h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 3px; }
+    .site-card__meta a { font-size: 12px; color: var(--accent); font-weight: 600; }
+    .site-card__meta a:hover { text-decoration: underline; }
+    .site-card__body { padding: 16px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+    .site-card__desc { font-size: 14px; color: var(--muted); margin-bottom: 18px; line-height: 1.75; flex: 1; }
+    .site-card__tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+    .tag {
+      font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px;
+      background: var(--accent-light); color: var(--accent); border: 1px solid #c9bfff;
+    }
+    .site-card__cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; color: var(--white);
+      background: var(--accent); padding: 10px 20px; border-radius: 100px;
+      align-self: flex-start; transition: all .2s;
+    }
+    .site-card__cta:hover { background: #4a3de0; transform: translateX(3px); }
 
-    .cta-section { background: linear-gradient(135deg, #1a1a24, #1f1535); border-top: 1px solid var(--border); text-align: center; }
-    .cta-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 12px; }
-    .cta-section p { color: var(--muted); margin-bottom: 32px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 100px; font-size: 15px; font-weight: 700; transition: transform .2s, box-shadow .2s; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px #7c6af740; }
-    .btn--primary { background: var(--accent); color: #fff; }
-    .btn--ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
-    .btn-group { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+    .skill-card {
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      box-shadow: var(--shadow); transition: all .2s;
+      position: relative; overflow: hidden;
+    }
+    .skill-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0); transform-origin: left; transition: transform .3s;
+    }
+    .skill-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+    .skill-card:hover::after { transform: scaleX(1); }
+    .skill-card__icon { font-size: 30px; margin-bottom: 14px; }
+    .skill-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 8px; }
+    .skill-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
-    footer { padding: 32px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+    /* WHY ME */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .why-card {
+      background: linear-gradient(135deg, var(--accent-light), #fff5f0);
+      border: 1.5px solid var(--border); border-radius: var(--radius); padding: 28px;
+      transition: transform .2s;
+    }
+    .why-card:hover { transform: translateY(-4px); }
+    .why-card__num { font-size: 2.5rem; font-weight: 800; color: var(--accent); opacity: .2; line-height: 1; margin-bottom: 10px; }
+    .why-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 8px; }
+    .why-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #5b4ef8, #7c6af7 50%, #ff6b35);
+      text-align: center; padding: 88px 24px;
+    }
+    .cta-section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #fff; margin-bottom: 14px; letter-spacing: -.02em; }
+    .cta-section p { color: rgba(255,255,255,.8); margin-bottom: 36px; font-size: 1.05rem; }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 30px; border-radius: 100px; font-size: 15px; font-weight: 700;
+      transition: all .2s; font-family: inherit;
+    }
+    .btn--white { background: #fff; color: var(--accent); }
+    .btn--white:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,.2); }
+    .btn--outline { background: transparent; border: 2px solid rgba(255,255,255,.5); color: #fff; }
+    .btn--outline:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: var(--text); color: rgba(255,255,255,.5);
+      padding: 32px 24px; text-align: center; font-size: 13px;
+    }
+    footer a { color: #a89fff; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 640px) {
+      .hero__stats { border-radius: 16px; }
+      .stat { padding: 16px 20px; }
+      .stat__num { font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
 
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Zohaib Akeel</div>
+    <a class="nav-email" href="mailto:zohaibakeel4117@gmail.com">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      zohaibakeel4117@gmail.com
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
 <section class="hero">
   <div class="hero__inner">
-    <div class="hero__badge">✦ Content Creator Portfolio</div>
+    <div class="hero__badge"><span></span> Available for Content Projects</div>
     <h1 class="hero__name">Zohaib Akeel</h1>
-    <p class="hero__title">SEO Content Writer &amp; Digital Publisher<br>Building niche websites that rank &amp; convert</p>
-    <div class="hero__contact">
+    <p class="hero__sub">SEO Content Writer &amp; Digital Publisher<br>I build niche websites and write content that ranks on Google.</p>
+    <div class="hero__pills">
       <a class="pill" href="mailto:zohaibakeel4117@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         zohaibakeel4117@gmail.com
       </a>
-      <a class="pill" href="https://freebeathub.com" target="_blank" rel="noopener">
+      <span class="pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         3 Live Websites
-      </a>
+      </span>
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        50+ Published Articles
+      </span>
     </div>
     <div class="hero__stats">
       <div class="stat"><div class="stat__num">3</div><div class="stat__label">Websites</div></div>
       <div class="stat"><div class="stat__num">50+</div><div class="stat__label">Articles</div></div>
       <div class="stat"><div class="stat__num">3</div><div class="stat__label">Niches</div></div>
-      <div class="stat"><div class="stat__num">SEO</div><div class="stat__label">Focused</div></div>
+      <div class="stat"><div class="stat__num">100%</div><div class="stat__label">SEO Focused</div></div>
     </div>
   </div>
 </section>
 
-<section style="background: var(--bg);">
+<!-- WEBSITES -->
+<section style="background:#fff;">
   <div class="container">
-    <p class="section-label">My Work</p>
-    <h2 class="section-title">Websites I've Built &amp; Written For</h2>
+    <div class="section-eyebrow">My Work</div>
+    <h2 class="section-title">Websites I've Built &amp; <span>Written For</span></h2>
     <div class="sites-grid">
 
       <div class="site-card">
-        <div class="site-card__header">
-          <div class="site-card__icon" style="background:#7c6af720;">📡</div>
+        <div class="site-card__top">
+          <div class="site-card__icon" style="background:#ede9ff;">📡</div>
           <div class="site-card__meta">
             <h3>TeleBoostPro</h3>
-            <span>teleboostpro.com/guides</span>
+            <a href="https://teleboostpro.com/guides" target="_blank" rel="noopener">teleboostpro.com/guides ↗</a>
           </div>
         </div>
         <div class="site-card__body">
           <p class="site-card__desc">In-depth guides on Telegram growth, channel management, automation tools, and audience building strategies for creators and businesses.</p>
           <div class="site-card__tags">
-            <span class="tag">Telegram</span><span class="tag">Growth</span><span class="tag">Guides</span><span class="tag">Automation</span>
+            <span class="tag">Telegram</span><span class="tag">Growth Hacking</span><span class="tag">Automation</span><span class="tag">Guides</span>
           </div>
-          <a class="site-card__link" href="https://teleboostpro.com/guides" target="_blank" rel="noopener">View Blog →</a>
+          <a class="site-card__cta" href="https://teleboostpro.com/guides" target="_blank" rel="noopener">Read Articles →</a>
         </div>
       </div>
 
       <div class="site-card">
-        <div class="site-card__header">
-          <div class="site-card__icon" style="background:#f9731620;">🎵</div>
+        <div class="site-card__top">
+          <div class="site-card__icon" style="background:#fff3ee;">🎵</div>
           <div class="site-card__meta">
             <h3>FreeBeatHub</h3>
-            <span>freebeathub.com/blog</span>
+            <a href="https://freebeathub.com/blog" target="_blank" rel="noopener">freebeathub.com/blog ↗</a>
           </div>
         </div>
         <div class="site-card__body">
           <p class="site-card__desc">Creator-focused blog covering YouTube music tips, Instagram Reels audio, TikTok hooks, podcast intros, and DMCA-safe music strategies.</p>
           <div class="site-card__tags">
-            <span class="tag">YouTube</span><span class="tag">Music</span><span class="tag">TikTok</span><span class="tag">Podcast</span>
+            <span class="tag">YouTube</span><span class="tag">Music Marketing</span><span class="tag">TikTok</span><span class="tag">Podcast</span>
           </div>
-          <a class="site-card__link" href="https://freebeathub.com/blog" target="_blank" rel="noopener">View Blog →</a>
+          <a class="site-card__cta" href="https://freebeathub.com/blog" target="_blank" rel="noopener">Read Articles →</a>
         </div>
       </div>
 
       <div class="site-card">
-        <div class="site-card__header">
-          <div class="site-card__icon" style="background:#06b6d420;">🤖</div>
+        <div class="site-card__top">
+          <div class="site-card__icon" style="background:#e0f7f4;">🤖</div>
           <div class="site-card__meta">
             <h3>CosetteAI</h3>
-            <span>cosetteai.com/guides</span>
+            <a href="https://cosetteai.com/guides/" target="_blank" rel="noopener">cosetteai.com/guides ↗</a>
           </div>
         </div>
         <div class="site-card__body">
@@ -179,7 +295,7 @@
           <div class="site-card__tags">
             <span class="tag">AI Tools</span><span class="tag">Productivity</span><span class="tag">Tutorials</span><span class="tag">Tech</span>
           </div>
-          <a class="site-card__link" href="https://cosetteai.com/guides/" target="_blank" rel="noopener">View Blog →</a>
+          <a class="site-card__cta" href="https://cosetteai.com/guides/" target="_blank" rel="noopener">Read Articles →</a>
         </div>
       </div>
 
@@ -187,37 +303,53 @@
   </div>
 </section>
 
-<section style="background: #0c0c10;">
+<!-- SKILLS -->
+<section style="background:var(--bg);">
   <div class="container">
-    <p class="section-label">What I Do</p>
-    <h2 class="section-title">Skills &amp; Expertise</h2>
+    <div class="section-eyebrow">Expertise</div>
+    <h2 class="section-title">Skills &amp; <span>What I Bring</span></h2>
     <div class="skills-grid">
-      <div class="skill-card"><div class="skill-card__icon">✍️</div><h4>SEO Content Writing</h4><p>Long-form, keyword-optimized articles that rank on Google and drive organic traffic.</p></div>
-      <div class="skill-card"><div class="skill-card__icon">🔍</div><h4>Keyword Research</h4><p>Finding low-competition, high-intent keywords to target for maximum visibility.</p></div>
-      <div class="skill-card"><div class="skill-card__icon">🌐</div><h4>Niche Website Building</h4><p>Building and managing full content websites from scratch — design, content, and SEO.</p></div>
-      <div class="skill-card"><div class="skill-card__icon">📊</div><h4>Content Strategy</h4><p>Planning content calendars and topic clusters that build topical authority.</p></div>
-      <div class="skill-card"><div class="skill-card__icon">🤖</div><h4>AI &amp; Tech Writing</h4><p>Explaining complex AI tools and tech concepts in clear, accessible language.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">✍️</div><h4>SEO Content Writing</h4><p>Long-form, keyword-optimized articles that rank on Google and drive consistent organic traffic.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">🔍</div><h4>Keyword Research</h4><p>Finding low-competition, high-intent keywords to target for maximum search visibility.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">🌐</div><h4>Niche Website Building</h4><p>Building and managing full content websites from scratch — design, content, and on-page SEO.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">📊</div><h4>Content Strategy</h4><p>Planning content calendars and topic clusters that build topical authority over time.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">🤖</div><h4>AI &amp; Tech Writing</h4><p>Explaining complex AI tools and tech concepts in clear, engaging, accessible language.</p></div>
       <div class="skill-card"><div class="skill-card__icon">📱</div><h4>Social Media Content</h4><p>Creating platform-specific content for YouTube, TikTok, Instagram, and Telegram.</p></div>
     </div>
   </div>
 </section>
 
+<!-- WHY HIRE ME -->
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-eyebrow">Why Me</div>
+    <h2 class="section-title">Reasons to <span>Hire Me</span></h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-card__num">01</div><h4>I Own Real Websites</h4><p>I don't just write — I build and run websites. I understand what content actually performs because I live with the results.</p></div>
+      <div class="why-card"><div class="why-card__num">02</div><h4>Multi-Niche Experience</h4><p>From AI tools to music marketing to Telegram growth — I can research and write authoritatively across diverse topics.</p></div>
+      <div class="why-card"><div class="why-card__num">03</div><h4>SEO-First Mindset</h4><p>Every article I write is structured to rank. I understand search intent, on-page SEO, and content structure deeply.</p></div>
+      <div class="why-card"><div class="why-card__num">04</div><h4>Consistent Publisher</h4><p>I've maintained active blogs across 3 websites simultaneously — I know how to deliver quality content on schedule.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="cta-section">
   <div class="container">
-    <h2>Let's Work Together</h2>
-    <p>Available for content writing, blog management, and SEO projects.</p>
+    <h2>Ready to Work Together?</h2>
+    <p>I'm actively looking for content writing opportunities. Let's talk.</p>
     <div class="btn-group">
-      <a class="btn btn--primary" href="mailto:zohaibakeel4117@gmail.com">
+      <a class="btn btn--white" href="mailto:zohaibakeel4117@gmail.com">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Email Me
+        Email Me Now
       </a>
-      <a class="btn btn--ghost" href="https://freebeathub.com/blog" target="_blank" rel="noopener">View Sample Work</a>
+      <a class="btn btn--outline" href="https://freebeathub.com/blog" target="_blank" rel="noopener">View Sample Work</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 Zohaib Akeel · Content Creator &amp; Digital Publisher · <a href="mailto:zohaibakeel4117@gmail.com" style="color:var(--accent)">zohaibakeel4117@gmail.com</a></p>
+  <p>© 2025 Zohaib Akeel &nbsp;·&nbsp; Content Creator &amp; Digital Publisher &nbsp;·&nbsp; <a href="mailto:zohaibakeel4117@gmail.com">zohaibakeel4117@gmail.com</a></p>
 </footer>
 
 </body>
