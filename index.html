@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zohaib Akeel — Content Creator Portfolio</title>
+  <meta name="description" content="Content creator portfolio of Zohaib Akeel. SEO blogs, guides, and digital content across multiple niche websites.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0f13;
+      --surface: #1a1a24;
+      --border: #2a2a3a;
+      --accent: #7c6af7;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --radius: 14px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 60px 20px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #2d1f6e44, transparent),
+                  radial-gradient(ellipse 60% 40% at 80% 80%, #f9731622, transparent);
+    }
+    .hero__inner { max-width: 700px; }
+    .hero__badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #7c6af722, #f9731622);
+      border: 1px solid var(--border); color: var(--accent);
+      font-size: 13px; font-weight: 600; letter-spacing: .06em;
+      padding: 6px 16px; border-radius: 100px;
+      margin-bottom: 24px; text-transform: uppercase;
+    }
+    .hero__name {
+      font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; line-height: 1.1;
+      background: linear-gradient(135deg, #fff 40%, #7c6af7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 16px;
+    }
+    .hero__title { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--muted); margin-bottom: 28px; }
+    .hero__contact { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px; }
+    .pill {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 10px 18px; border-radius: 100px; font-size: 14px; font-weight: 500;
+      transition: border-color .2s, transform .2s;
+    }
+    .pill:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .pill svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .hero__stats { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .stat { text-align: center; }
+    .stat__num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .stat__label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+
+    section { padding: 80px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; margin-bottom: 48px; }
+
+    .sites-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .site-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .site-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 20px 60px #7c6af720; }
+    .site-card__header { padding: 28px 28px 0; display: flex; align-items: center; gap: 14px; }
+    .site-card__icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .site-card__meta h3 { font-size: 1.1rem; font-weight: 700; }
+    .site-card__meta span { font-size: 13px; color: var(--muted); }
+    .site-card__body { padding: 16px 28px 28px; }
+    .site-card__desc { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.7; }
+    .site-card__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .tag { font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 100px; background: #7c6af715; color: var(--accent); border: 1px solid #7c6af730; }
+    .site-card__link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent); transition: gap .2s; }
+    .site-card__link:hover { gap: 10px; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color .2s; }
+    .skill-card:hover { border-color: var(--accent); }
+    .skill-card__icon { font-size: 28px; margin-bottom: 12px; }
+    .skill-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .skill-card p { font-size: 13px; color: var(--muted); }
+
+    .cta-section { background: linear-gradient(135deg, #1a1a24, #1f1535); border-top: 1px solid var(--border); text-align: center; }
+    .cta-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 12px; }
+    .cta-section p { color: var(--muted); margin-bottom: 32px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 100px; font-size: 15px; font-weight: 700; transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px #7c6af740; }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+    footer { padding: 32px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__badge">✦ Content Creator Portfolio</div>
+    <h1 class="hero__name">Zohaib Akeel</h1>
+    <p class="hero__title">SEO Content Writer &amp; Digital Publisher<br>Building niche websites that rank &amp; convert</p>
+    <div class="hero__contact">
+      <a class="pill" href="mailto:zohaibakeel4117@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        zohaibakeel4117@gmail.com
+      </a>
+      <a class="pill" href="https://freebeathub.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        3 Live Websites
+      </a>
+    </div>
+    <div class="hero__stats">
+      <div class="stat"><div class="stat__num">3</div><div class="stat__label">Websites</div></div>
+      <div class="stat"><div class="stat__num">50+</div><div class="stat__label">Articles</div></div>
+      <div class="stat"><div class="stat__num">3</div><div class="stat__label">Niches</div></div>
+      <div class="stat"><div class="stat__num">SEO</div><div class="stat__label">Focused</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--bg);">
+  <div class="container">
+    <p class="section-label">My Work</p>
+    <h2 class="section-title">Websites I've Built &amp; Written For</h2>
+    <div class="sites-grid">
+
+      <div class="site-card">
+        <div class="site-card__header">
+          <div class="site-card__icon" style="background:#7c6af720;">📡</div>
+          <div class="site-card__meta">
+            <h3>TeleBoostPro</h3>
+            <span>teleboostpro.com/guides</span>
+          </div>
+        </div>
+        <div class="site-card__body">
+          <p class="site-card__desc">In-depth guides on Telegram growth, channel management, automation tools, and audience building strategies for creators and businesses.</p>
+          <div class="site-card__tags">
+            <span class="tag">Telegram</span><span class="tag">Growth</span><span class="tag">Guides</span><span class="tag">Automation</span>
+          </div>
+          <a class="site-card__link" href="https://teleboostpro.com/guides" target="_blank" rel="noopener">View Blog →</a>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <div class="site-card__header">
+          <div class="site-card__icon" style="background:#f9731620;">🎵</div>
+          <div class="site-card__meta">
+            <h3>FreeBeatHub</h3>
+            <span>freebeathub.com/blog</span>
+          </div>
+        </div>
+        <div class="site-card__body">
+          <p class="site-card__desc">Creator-focused blog covering YouTube music tips, Instagram Reels audio, TikTok hooks, podcast intros, and DMCA-safe music strategies.</p>
+          <div class="site-card__tags">
+            <span class="tag">YouTube</span><span class="tag">Music</span><span class="tag">TikTok</span><span class="tag">Podcast</span>
+          </div>
+          <a class="site-card__link" href="https://freebeathub.com/blog" target="_blank" rel="noopener">View Blog →</a>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <div class="site-card__header">
+          <div class="site-card__icon" style="background:#06b6d420;">🤖</div>
+          <div class="site-card__meta">
+            <h3>CosetteAI</h3>
+            <span>cosetteai.com/guides</span>
+          </div>
+        </div>
+        <div class="site-card__body">
+          <p class="site-card__desc">Practical AI guides and tutorials helping users understand and leverage artificial intelligence tools for productivity, content, and business.</p>
+          <div class="site-card__tags">
+            <span class="tag">AI Tools</span><span class="tag">Productivity</span><span class="tag">Tutorials</span><span class="tag">Tech</span>
+          </div>
+          <a class="site-card__link" href="https://cosetteai.com/guides/" target="_blank" rel="noopener">View Blog →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="background: #0c0c10;">
+  <div class="container">
+    <p class="section-label">What I Do</p>
+    <h2 class="section-title">Skills &amp; Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-card__icon">✍️</div><h4>SEO Content Writing</h4><p>Long-form, keyword-optimized articles that rank on Google and drive organic traffic.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">🔍</div><h4>Keyword Research</h4><p>Finding low-competition, high-intent keywords to target for maximum visibility.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">🌐</div><h4>Niche Website Building</h4><p>Building and managing full content websites from scratch — design, content, and SEO.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">📊</div><h4>Content Strategy</h4><p>Planning content calendars and topic clusters that build topical authority.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">🤖</div><h4>AI &amp; Tech Writing</h4><p>Explaining complex AI tools and tech concepts in clear, accessible language.</p></div>
+      <div class="skill-card"><div class="skill-card__icon">📱</div><h4>Social Media Content</h4><p>Creating platform-specific content for YouTube, TikTok, Instagram, and Telegram.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Let's Work Together</h2>
+    <p>Available for content writing, blog management, and SEO projects.</p>
+    <div class="btn-group">
+      <a class="btn btn--primary" href="mailto:zohaibakeel4117@gmail.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email Me
+      </a>
+      <a class="btn btn--ghost" href="https://freebeathub.com/blog" target="_blank" rel="noopener">View Sample Work</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Zohaib Akeel · Content Creator &amp; Digital Publisher · <a href="mailto:zohaibakeel4117@gmail.com" style="color:var(--accent)">zohaibakeel4117@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
